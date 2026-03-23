@@ -1,41 +1,58 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* 1. FORCE EVERYTHING TO BE PINK */
-html, body, .page {
-    margin: 0;
-    padding: 0;
+/* --- LAYERING FIXES --- */
+
+.hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100vh;
-    background-color: #ff9a9e !important; /* Solid Pink Fallback */
-    background: linear-gradient(-45deg, #ff6ec4, #ff9a9e, #ff758c, #ffb6c1) !important;
-    background-attachment: fixed; /* Keeps background from moving on mobile */
-    overflow: hidden;
+    height: 100%;
+    /* This makes them stay in the back */
+    z-index: 1 !important; 
+    /* This ensures you can click the book even if a heart is over it */
+    pointer-events: none; 
 }
 
-/* 2. REMOVE ANY WHITE FROM CONTAINERS */
 .page {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
     display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: transparent !important; /* Makes sure the pink shows through */
+    /* Middle layer */
+    z-index: 5; 
+    background: transparent !important;
 }
 
-.page.active {
-    display: flex;
-}
-
-/* 3. GLASS EFFECT (The box behind your text) */
 .glass {
-    background: rgba(255, 255, 255, 0.25); /* Semi-transparent white */
+    background: rgba(255, 255, 255, 0.2);
     padding: 30px;
     border-radius: 20px;
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px); /* Fix for iPhone Safari */
+    -webkit-backdrop-filter: blur(10px);
     color: white;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    /* Front layer */
+    z-index: 10 !important; 
+}
+
+.book-wrapper {
+    perspective: 1500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* Front layer */
+    z-index: 10 !important; 
+}
+
+#musicToggle {
+    /* Very top layer so you can always mute */
+    z-index: 100 !important; 
 }
 
 button {
