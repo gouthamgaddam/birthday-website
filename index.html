@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="hearts"></div>
+
+<button id="musicToggle" onclick="toggleMute()">🔊</button>
+
+<div class="hearts"></div>
+
+<audio id="bgMusic" loop preload="auto">
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<div class="page active" id="page1">
+    <div class="glass">
+        <h1>I Have A Little Surprise For You 💕</h1>
+        <button onclick="startMusic(); goToPage(2)">Open It ➡</button>
+    </div>
+</div>
+
+<div class="page" id="page2">
+    <div class="glass">
+        <h2>A Little Letter For You 💌</h2>
+        <p>Thank you for coming into my life—you’re the most beautiful girl I’ve ever met, inside and out. I’m a little sad <br> we can’t celebrate your birthday properly, but don’t worry, I’m here. I have a little surprise <br> for you—all our memories. Some are sweet, some might make you a little mad at me, <br> but through it all, I love you no matter what ❤️</p>
+        <button onclick="goToPage(3)">Open Memory Book 📖</button>
+    </div>
+</div>
+
+<div class="page" id="page3">
+    <div class="book-wrapper">
+        <div class="book" id="book">
+            
+            <div class="sheet">
+                <div class="page-side front cover-front">
+                    <h2>Our Memories ❤️</h2>
+                    <p style="font-size: 14px; margin-top: 10px;">(Click Right Side to Flip)</p>
+                </div>
+                <div class="page-side back"><img src="images/photo1.jpg"><p class="caption"> 22/10/2025 </p>
+                <p class="caption" style="color: black;">  The day it all started </p> </div>
+            </div>
+
+            <div class="sheet"><div class="page-side front"><img src="images/photo2.jpg"><p class="caption" style="color: black;"> i am the luckiest man </p></div><div class="page-side back"><img src="images/photo3.jpg"><p class="caption"> 23/10/2025 </p></div></div>
+            <div class="sheet"><div class="page-side front"><img src="images/photo4.jpg"><p class="caption"> 27/10/2025 </p></div><div class="page-side back"><img src="images/photo5.jpg"><p class="caption" style="color: black;"> A huge thanks to taniya vo bhot help karte hai, tho this pic dedicated to her </p></div></div>
+            <div class="sheet"><div class="page-side front"><img src="images/photo6.jpg"><p class="caption"> 2/11/2025 </p></div><div class="page-side back"><img src="images/photo7.jpg"><p class="caption"> 7/11/2025 </p></div></div>
+            <div class="sheet"><div class="page-side front"><img src="images/photo8.jpg"><p class="caption"> 8/11/2025 </p></div><div class="page-side back"><img src="images/photo9.jpg"><p class="caption"> 10/11/2025</p></div></div>
+            <div class="sheet"><div class="page-side front"><img src="images/photo10.jpg"><p class="caption"> 16/11/2025 </p></div><div class="page-side back"><img src="images/photo11.jpg"><p class="caption"> 28/11/2025 </p></div></div>
+            <div class="sheet"><div class="page-side front"><img src="images/photo12.jpg"><p class="caption"> 29/11/2025 </p></div><div class="page-side back"><img src="images/photo13.jpg"><p class="caption"> 30/11/2025 </p> <p style="color: black;"> How could I ever forget this day—the day of my first kiss with you.</p></div></div>
+            <div class="sheet"><div class="page-side front"><img src="images/photo14.jpg"><p class="caption"> 3/11/2025 </p> <p> The day everything became official </p> <p> (The best day of my life)</p></div><div class="page-side back"><img src="images/photo15.jpg"><p class="caption"> 4/11/2025 </p></div></div>
+            <div class="sheet"><div class="page-side front"><img src="images/photo16.jpg"><p class="caption"> 6/11/2025</p></div><div class="page-side back"><img src="images/photo17.jpg"><p class="caption"> 7/11/2025</p></div></div>
+            <div class="sheet"><div class="page-side front"><img src="images/photo18.jpg"><p class="caption"> 15/11/2025 </p></div><div class="page-side back"><img src="images/photo19.jpg"><p class="caption"> 18/11/2025</p><p style="color: black;"> One of my favorite tops</p></div></div>
+            <div class="sheet"><div class="page-side front"><img src="images/photo20.jpg"><p class="caption" style="color: black;">Ye, toh vaise he daala Hu mera </p> <p style="color: black;"> favourite picture hai 😁 </p></div><div class="page-side back"><img src="images/photo21.jpg"><p class="caption"> 6/1/2026 </p></div></div>
+            <div class="sheet"><div class="page-side front"><img src="images/photo22.jpg"><p class="caption"> 21/1/2026 </p> <p style="color: black;"> this is what I call a good morning </p></div><div class="page-side back"><img src="images/photo23.jpg"><p class="caption" style="color: black;">Always will remember those few days, itana maza aaya hai</p></div></div>
+            <div class="sheet"><div class="page-side front"><img src="images/photo24.jpg"><p class="caption"> 23/1/2026 </p></div><div class="page-side back"><img src="images/photo25.jpg"><p class="caption"> 23/1/2026 </p></div></div>
+            <div class="sheet"><div class="page-side front"><img src="images/photo26.jpg"><p class="caption"> 8/2/2026 </p></div><div class="page-side back"><img src="images/photo27.jpg"><p class="caption"> 12/2/2026 </p></div></div>
+            <div class="sheet"><div class="page-side front"><img src="images/photo28.jpg"><p class="caption"> 14/2/2026 </p> <p style="color: black;"> Our first date ❤️ </p></div><div class="page-side back"><img src="images/photo29.jpg"><p class="caption"> 24/2/2026</p></div></div>
+            <div class="sheet"><div class="page-side front"><img src="images/photo30.jpg"><p class="caption"> 2/3/2026 </p></div><div class="page-side back"><img src="images/photo31.jpg"><p class="caption"> 3/3/2026 </p></div></div>
+            <div class="sheet"><div class="page-side front"><img src="images/photo32.jpg"><p class="caption" style="color: black;"> Our first Holi 💕-a memory I'll always hold close. </p> </div><div class="page-side back"><img src="images/photo33.jpg"><p class="caption"> 6/3/2026 </p></div></div>
+            <div class="sheet"><div class="page-side front"><img src="images/photo34.jpg"><p class="caption" style="color: black;"> Vo dress ithna achha lag raha hai aap pae ✨️ </p></div><div class="page-side back"><img src="images/photo35.jpg"><p class="caption"> 7/3/2026 </p></div></div>
+            <div class="sheet"><div class="page-side front"><img src="images/photo36.jpg"><p class="caption"> 8/3/2026 </p></div><div class="page-side back"><img src="images/photo37.jpg"><p class="caption"> </p></div></div>
+            <div class="sheet"><div class="page-side front"><img src="images/photo38.jpg"><p class="caption">  </p></div><div class="page-side back"><img src="images/photo39.jpg"><p class="caption">  </p></div></div>
+            <div class="sheet"><div class="page-side front"><img src="images/photo40.jpg"><p class="caption">  </p></div><div class="page-side back"><img src="images/photo41.jpg"><p class="caption" style="color: black;"> Ya mara favourite pic hai abhi sai </p></div></div>
+            <div class="sheet"><div class="page-side front"><img src="images/photo42.jpg"><p class="caption">  </p></div><div class="page-side back"><img src="images/photo43.jpg"><p class="caption">  </p></div></div>
+            <div class="sheet"><div class="page-side front"><img src="images/photo44.jpg"><p class="caption">  </p></div><div class="page-side back"><img src="images/photo45.jpg"><p class="caption" style="color: black;"> you and kurthi 🤌 </p></div></div>
+
+            <div class="sheet">
+                <div class="page-side front"><img src="images/photo46.jpg"><p class="caption" style="color: black;"> I don’t know how I’ll live without your cute little faces 🥺 </p></div>
+                <div class="page-side back cover-back">
+                    <h2 style="font-style: oblique;"> Many more to come 💕</h2>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <button id="finishBtn" onclick="goToPage(4)"> One last message </button>
+</div>
+
+<div class="page" id="page4">
+    <div class="glass">
+        <h1>Happy Birthday baby </h1>
+        <p>I know the timing of your birthday isn't the best, but <br> I'll do my best to make you happy-and I'll be there <br> for every one of your birthdays<br><br>I love you endlessly.💕</p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

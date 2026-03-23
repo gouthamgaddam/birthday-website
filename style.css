@@ -1,0 +1,184 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    background: linear-gradient(-45deg, #ff6ec4, #ff9a9e, #ff758c, #ffb6c1);
+    background-size: 400% 400%;
+    animation: bgMove 12s ease infinite;
+}
+
+@keyframes bgMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.page {
+    position: absolute;
+    width: 100%; height: 100vh;
+    display: none; justify-content: center; align-items: center;
+    flex-direction: column; z-index: 2;
+}
+
+.page.active { display: flex; }
+
+.glass {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 30px; border-radius: 20px;
+    backdrop-filter: blur(15px); color: white; text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+button {
+    margin-top: 20px; padding: 10px 25px; border: none;
+    border-radius: 20px; cursor: pointer; font-size: 16px;
+    background: white; color: #ff4e8a; font-weight: bold;
+}
+
+/* BOOK ENGINE */
+.book-wrapper {
+    perspective: 1500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.book {
+    width: 600px; 
+    height: 450px;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.sheet {
+    position: absolute;
+    width: 300px; 
+    height: 100%;
+    right: 0; 
+    transform-origin: left center; 
+    transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transform-style: preserve-3d;
+}
+
+.sheet.flipped {
+    transform: rotateY(-180deg);
+}
+
+.page-side {
+    position: absolute;
+    width: 100%; height: 100%;
+    backface-visibility: hidden;
+    background: #fff;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: flex-start;
+    padding: 15px; border: 1px solid #ddd;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.05);
+}
+
+.front { border-radius: 0 10px 10px 0; z-index: 2; }
+.back { transform: rotateY(180deg); border-radius: 10px 0 0 10px; z-index: 1; }
+
+.page-side img { 
+    width: 100%; 
+    height: 80%; 
+    object-fit: cover; 
+    border-radius: 5px;
+}
+
+.caption {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #ff4e8a;
+    font-style: italic;
+}
+
+.cover-front { background: linear-gradient(135deg, #ff4e8a, #ff7eb3); color: white; justify-content: center; }
+.cover-back { background: #fffafb; justify-content: center; }
+
+#finishBtn { display: none; margin-top: 20px; }
+
+.hearts { position: fixed; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+.heart { position: absolute; bottom: -20px; animation: floatUp 6s linear forwards; }
+@keyframes floatUp { to { transform: translateY(-110vh); opacity: 0; } }
+
+/* Music Toggle Button Styling */
+#musicToggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1000; /* Ensure it stays above everything */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    margin-top: 0; /* Reset margin from general button style */
+}
+
+#musicToggle:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+/* RESPONSIVE LOGIC */
+
+/* Default for Desktop */
+.book {
+    width: 600px;
+    height: 400px;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+/* --- MOBILE RESPONSIVENESS SECTION --- */
+
+/* This 'Media Query' only activates when the screen is narrower than 650px */
+@media (max-width: 650px) {
+    
+    /* 1. Make the book container fit the phone screen width */
+    .book {
+        width: 90vw; 
+        height: 50vh; /* Shorter height to leave room for buttons */
+        margin: 0 auto;
+    }
+
+    /* 2. Make each sheet half the width of the book */
+    .sheet {
+        width: 45vw; 
+    }
+
+    /* 3. Adjust the image size so it doesn't squash the text */
+    .page-side img {
+        height: 65%; 
+        width: 100%;
+        object-fit: cover;
+    }
+
+    /* 4. Make the text smaller so it fits on one line */
+    .caption {
+        font-size: 14px;
+        margin-top: 8px;
+    }
+
+    .glass h1 {
+        font-size: 20px;
+    }
+
+    /* 5. Fix the height issue on mobile browsers */
+    body, .page {
+        height: 100vh;
+        height: -webkit-fill-available;
+        overflow: hidden;
+    }
+}
